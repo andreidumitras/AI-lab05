@@ -23,22 +23,30 @@ def minimax(board: List[int], player: int) -> int:
     Minimax from perspective: 1 = human (maximizer), -1 = AI (minimizer).
     Returns score.
     """
-    w = ttt_winner(board)
-    if w is not None:
-        if w == 1: return 1
-        if w == -1: return -1
-        return 0
-    best = -2 if player == 1 else 2
-    for i in range(9):
-        if board[i] == 0:
-            board[i] = player
-            val = minimax(board, -player)
-            board[i] = 0
-            if player == 1:
-                best = max(best, val)
-            else:
-                best = min(best, val)
-    return best
+    # TODO:
+# get the ttt_winner
+#     if winner == 1 then
+#         best = 1                       // use -2 in original code since scores are in [-1,1]
+#     else if winner -1
+#         best = -1
+#     else return 0                     // use  2 in original code
+#   best = -2 if player == 1 else best = 2 if player != 1
+
+# for i from 0 to 8 do
+#     if board[i] == 0 then          // empty cell
+#         board[i] = player          // make move
+#         value = MINIMAX(board, -player)   // evaluate resulting position
+#         board[i] = 0               // undo move
+
+#         if player == 1 then
+#             best = max(best, value)    // maximizer chooses highest score
+#         else
+#             best = min(best, value)    // minimizer chooses lowest score
+#         end if
+#     end if
+# end for
+# return best
+    pass
 
 def run_minimax_tictactoe():
     """
