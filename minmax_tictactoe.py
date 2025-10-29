@@ -25,11 +25,8 @@ def minimax(board: List[int], player: int) -> int:
     """
     # TODO:
 # get the ttt_winner
-#     if winner == 1 then
-#         best = 1                       // use -2 in original code since scores are in [-1,1]
-#     else if winner -1
-#         best = -1
-#     else return 0                     // use  2 in original code
+#     if winner is not None
+#       return winner                    // use  2 in original code
 #   best = -2 if player == 1 else best = 2 if player != 1
 
 # for i from 0 to 8 do
@@ -86,6 +83,7 @@ def run_minimax_tictactoe():
                 if board[i] == 0:
                     board[i] = -1
                     val = minimax(board, 1)
+                    print(val)
                     board[i] = 0
                     r = i // 3; c = i % 3
                     txt = font.render(str(val), True, (0, 100, 0))
